@@ -14,16 +14,11 @@ class Solution {
             sum-=nums[left-1];
             found = true;
         }
-        if(sum >= target){
-            min_length = Math.min(min_length,right-left+1);
         }
-        }
-        if(found){
+        if(min_length < Integer.MAX_VALUE)
             return min_length;
-        }
-        else{
+        else
             return 0;
-        }
         
     }
 }
