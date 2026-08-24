@@ -4,9 +4,10 @@ class Solution {
         if ((long) m * k > bloomDay.length) {
             return -1;
         }
-        int left = 1;
+        int left = 0;
         int right = 0;
         for (int bloom : bloomDay) {
+            left = Math.min(left,bloom);
             right = Math.max(right, bloom);
         }
 
