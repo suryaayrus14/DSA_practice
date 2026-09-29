@@ -1,24 +1,27 @@
 class Solution {
     public int smallestDivisor(int[] nums, int threshold) {
-        int left = 1;
-        int right = 0;
-        for(int n : nums){
-            right = Math.max(right,n);
+        int low = 1;
+        int high = 0;
+        for(int n:nums){
+            high = Math.max(n,high);
         }
-        while(left <= right){
-            int sum = 0;
-            int mid = left + (right - left)/2;
+
+        while(low <= high){
+            int mid = low + (high - low)/2;
+            int w_sum = 0;
+
             for(int n : nums){
-                int div =(int) Math.ceil((double)n/mid);
-                sum+=div;
+                int sum = (n + mid -1)/mid;
+                w_sum += sum;
             }
-            if(sum <= threshold){
-                right = mid-1;
+            if(w_sum <= threshold){
+                high = mid -1;
             }
             else{
-                left = mid+1;
+                low = mid + 1;
             }
+
         }
-        return left;
+        return low;
     }
 }
