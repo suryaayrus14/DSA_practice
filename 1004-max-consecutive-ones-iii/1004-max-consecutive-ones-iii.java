@@ -4,18 +4,18 @@ class Solution {
         int zeros = 0;
         int max_length = 0;
 
-        for(int right = 0;right<nums.length;right++){
-            if(nums[right] == 0){
+        for (int right = 0; right < nums.length; right++) {
+            if (nums[right] == 0) {
                 zeros++;
             }
-            while(zeros > k){
-                left++;
-                if(nums[left -1] == 0){
+            while (zeros > k) {
+                if (nums[left] == 0) {
                     zeros--;
                 }
+                left++;
             }
-            max_length = Math.max(max_length,right - left + 1);
-        } 
+            max_length = Math.max(max_length, right - left + 1);
+        }
         return max_length;
     }
 }
